@@ -5,9 +5,11 @@ module.exports = {
     extend: {
       colors: {
         haiti: '#120926',
+        primary: '#7127BA',
       },
       fontFamily: {
         sans: ['Plus Jakarta Sans', 'sans-serif'],
+        heading: ['Preahvihear', 'sans-serif'],
       },
     },
   },
