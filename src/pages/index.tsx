@@ -59,6 +59,29 @@ const Home = () => {
           </div>
         </Container>
       </section>
+
+      <section className="mb-56">
+        <Container>
+          <h1 className="text-5xl mb-3">I&apos;m a Full-Stack Developer.</h1>
+          <p className="text-xl font-heading mb-20">
+            Currently, I&apos;m focused on building accessible, human-centered
+            products at{' '}
+            <a
+              href="https://www.upwork.com/freelancers/~0110dcf905a3a19183"
+              className="text-primary relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-primary after:scale-0 after:origin-left after:transition-transform after:ease-linear after:duration-[var(--duration-normal)] hover:after:scale-100"
+            >
+              Upwork
+            </a>
+            .
+          </p>
+
+          <p className="text-xl font-heading">
+            A Philippine based web developer who is passionate about creating
+            beautiful and joyful digital experiences. Besides coding, I love
+            music, games and travelling.
+          </p>
+        </Container>
+      </section>
     </>
   );
 };
