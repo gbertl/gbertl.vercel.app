@@ -11,17 +11,26 @@ const Navbar = () => {
         </Link>
         <ul className="flex">
           <li>
-            <Link href="#" className="p-8">
+            <Link
+              href="#"
+              className="px-8 duration-[var(--duration-normal)] hover:text-primary"
+            >
               About
             </Link>
           </li>
           <li>
-            <Link href="#work" className="p-8">
+            <Link
+              href="#work"
+              className="px-8 duration-[var(--duration-normal)] hover:text-primary"
+            >
               Work
             </Link>
           </li>
           <li>
-            <Link href="#contact" className="p-8">
+            <Link
+              href="#contact"
+              className="px-8 duration-[var(--duration-normal)] hover:text-primary"
+            >
               Contact
             </Link>
           </li>
