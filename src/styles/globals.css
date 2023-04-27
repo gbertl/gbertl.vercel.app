@@ -14,8 +14,4 @@
   h5 {
     @apply font-heading;
   }
-
-  a {
-    @apply hover:text-primary;
-  }
 }
