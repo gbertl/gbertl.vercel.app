@@ -323,7 +323,9 @@ const Home = ({ works }: Props) => {
 export default Home;
 
 export const getStaticProps = async () => {
-  const { data: works } = await axios.get('https://api.gbertl.dev/api/works');
+  const { data: works } = await axios.get(
+    'https://api.gbertl.dev/api/works?sort[priorityOrder]=1'
+  );
 
   return {
     props: {
