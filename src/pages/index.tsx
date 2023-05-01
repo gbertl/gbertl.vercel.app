@@ -3,7 +3,8 @@ import Arrow from '@/icons/Arrow';
 import Head from 'next/head';
 import Image from 'next/image';
 import axios from 'axios';
-import { FiGithub, FiExternalLink } from 'react-icons/fi';
+import { FiGithub, FiExternalLink, FiSend, FiLinkedin } from 'react-icons/fi';
+import { SiUpwork } from 'react-icons/si';
 import { isEven } from '@/utils';
 import ReactCardFlip from 'react-card-flip';
 import { useState } from 'react';
@@ -117,6 +118,54 @@ const Home = ({ works }: Props) => {
         </Container>
       </section>
 
+      <section className="mb-56">
+        <Container>
+          <div className="text-center mb-8">
+            <h3 className="text-2xl">
+              I&apos;m currently looking to join a{' '}
+              <span className="text-lightViolet">cross-functional</span> team
+            </h3>
+            <small className="font-heading">
+              that values improving peoples lives through accessible design
+            </small>
+          </div>
+
+          <div className="flex justify-center items-center gap-x-4 gap-y-5 max-w-sm flex-wrap mx-auto">
+            {logos.map((logo, idx) => (
+              <ReactCardFlip
+                key={logo.name}
+                isFlipped={activeFlipped.includes(logo.name)}
+              >
+                <div
+                  className="relative bg-bleachedCedar rounded-full w-14 h-14 grid place-items-center cursor-pointer"
+                  onClick={() =>
+                    setActiveFlipped((prev) => [...prev, logo.name])
+                  }
+                >
+                  <Image
+                    src={logo.path}
+                    alt={logo.name}
+                    width={38}
+                    height={38}
+                  />
+                </div>
+
+                <div
+                  className="relative bg-bleachedCedar rounded-full w-14 h-14 grid place-items-center cursor-pointer text-xs text-center"
+                  onClick={() =>
+                    setActiveFlipped((prev) =>
+                      prev.filter((flippedName) => flippedName !== logo.name)
+                    )
+                  }
+                >
+                  {logo.name}
+                </div>
+              </ReactCardFlip>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       <section className="mb-40">
         <Container className="space-y-44">
           {works.map((work, idx) => (
@@ -219,48 +268,41 @@ const Home = ({ works }: Props) => {
 
       <section className="mb-56">
         <Container>
-          <div className="text-center mb-8">
-            <h3 className="text-2xl">
-              I&apos;m currently looking to join a{' '}
-              <span className="text-lightViolet">cross-functional</span> team
-            </h3>
-            <small className="font-heading">
-              that values improving peoples lives through accessible design
-            </small>
-          </div>
+          <h2 className="text-2xl mb-16">Contact</h2>
+          <p className="font-heading mb-8 md:w-3/5 text-sm">
+            I&apos;m currently looking to join a cross-functional team that
+            values improving people&apos;s lives through accessible design. or
+            have a project in mind? Let&apos;s connect.
+          </p>
 
-          <div className="flex justify-center items-center gap-x-4 gap-y-5 max-w-sm flex-wrap mx-auto">
-            {logos.map((logo, idx) => (
-              <ReactCardFlip
-                key={logo.name}
-                isFlipped={activeFlipped.includes(logo.name)}
-              >
-                <div
-                  className="relative bg-bleachedCedar rounded-full w-14 h-14 grid place-items-center cursor-pointer"
-                  onClick={() =>
-                    setActiveFlipped((prev) => [...prev, logo.name])
-                  }
-                >
-                  <Image
-                    src={logo.path}
-                    alt={logo.name}
-                    width={38}
-                    height={38}
-                  />
-                </div>
-
-                <div
-                  className="relative bg-bleachedCedar rounded-full w-14 h-14 grid place-items-center cursor-pointer text-xs text-center"
-                  onClick={() =>
-                    setActiveFlipped((prev) =>
-                      prev.filter((flippedName) => flippedName !== logo.name)
-                    )
-                  }
-                >
-                  {logo.name}
-                </div>
-              </ReactCardFlip>
-            ))}
+          <div className="flex gap-7">
+            <a
+              href="mailto:gilbertlctest@gmail.com"
+              className="text-lg transition duration-[var(--duration-normal) hover:text-primary"
+            >
+              <FiSend />
+            </a>
+            <a
+              href="https://www.upwork.com/freelancers/~0110dcf905a3a19183"
+              target="_blank"
+              className="text-lg transition duration-[var(--duration-normal) hover:text-primary"
+            >
+              <SiUpwork />
+            </a>
+            <a
+              href="https://github.com/gbertl"
+              target="_blank"
+              className="text-lg transition duration-[var(--duration-normal) hover:text-primary"
+            >
+              <FiGithub />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/gilbertlcsndle/"
+              target="_blank"
+              className="text-lg transition duration-[var(--duration-normal) hover:text-primary"
+            >
+              <FiLinkedin />
+            </a>
           </div>
         </Container>
       </section>
