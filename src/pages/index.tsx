@@ -242,7 +242,7 @@ const Home = ({ works }: Props) => {
                   {work.text}
                 </p>
                 <div
-                  className={`flex gap-3 flex-wrap whitespace-nowrap text-sm text-body-2 font-sans2 mb-9 font-light ${
+                  className={`flex gap-3 flex-wrap whitespace-nowrap text-sm text-body-2 font-sans2 font-light ${
                     isEven(idx) ? '' : 'justify-end'
                   }`}
                 >
@@ -250,26 +250,32 @@ const Home = ({ works }: Props) => {
                     <span key={idx}>{c}</span>
                   ))}
                 </div>
-                <div
-                  className={`flex gap-4 text-3xl ${
-                    isEven(idx) ? '' : 'justify-end'
-                  }`}
-                >
-                  <a
-                    href={work.source}
-                    target="_blank"
-                    className="transition duration-[var(--duration-normal)] hover:text-primary"
+                {work.source && work.liveUrl && (
+                  <div
+                    className={`flex gap-4 text-3xl mt-9 ${
+                      isEven(idx) ? '' : 'justify-end'
+                    }`}
                   >
-                    <FiGithub />
-                  </a>
-                  <a
-                    href={work.liveUrl}
-                    target="_blank"
-                    className="transition duration-[var(--duration-normal)] hover:text-primary"
-                  >
-                    <FiExternalLink />
-                  </a>
-                </div>
+                    {work.source && (
+                      <a
+                        href={work.source}
+                        target="_blank"
+                        className="transition duration-[var(--duration-normal)] hover:text-primary"
+                      >
+                        <FiGithub />
+                      </a>
+                    )}
+                    {work.liveUrl && (
+                      <a
+                        href={work.liveUrl}
+                        target="_blank"
+                        className="transition duration-[var(--duration-normal)] hover:text-primary"
+                      >
+                        <FiExternalLink />
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           ))}
