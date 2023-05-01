@@ -95,7 +95,7 @@ const Home = ({ works }: Props) => {
         </Container>
       </section>
 
-      <section className="mb-56">
+      <section className="mb-56" id="about">
         <Container>
           <h1 className="text-5xl mb-3">I&apos;m a Full-Stack Developer.</h1>
           <p className="text-xl font-heading mb-20">
@@ -166,7 +166,7 @@ const Home = ({ works }: Props) => {
         </Container>
       </section>
 
-      <section className="mb-40">
+      <section className="mb-40" id="work">
         <Container className="space-y-44">
           {works.map((work, idx) => (
             <div
@@ -268,7 +268,7 @@ const Home = ({ works }: Props) => {
         </Container>
       </section>
 
-      <section className="mb-56">
+      <section className="mb-56" id="contact">
         <Container>
           <h2 className="text-2xl mb-16">Contact</h2>
           <p className="font-heading mb-8 md:w-3/5 text-sm">

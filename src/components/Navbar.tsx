@@ -15,7 +15,8 @@ const Navbar = () => {
         <ul className="flex">
           <li>
             <Link
-              href="#"
+              href="/#about"
+              scroll={false}
               className="px-8 transition duration-[var(--duration-normal)] hover:text-primary"
             >
               About
@@ -23,7 +24,8 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              href="#work"
+              href="/#work"
+              scroll={false}
               className="px-8 transition duration-[var(--duration-normal)] hover:text-primary"
             >
               Work
@@ -31,7 +33,8 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              href="#contact"
+              href="/#contact"
+              scroll={false}
               className="px-8 transition duration-[var(--duration-normal)] hover:text-primary"
             >
               Contact
