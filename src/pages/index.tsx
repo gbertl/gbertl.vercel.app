@@ -126,9 +126,9 @@ const Home = ({ works }: Props) => {
               I&apos;m currently looking to join a{' '}
               <span className="text-lightViolet">cross-functional</span> team
             </h3>
-            <small className="font-heading">
+            <span className="font-heading text-lg">
               that values improving peoples lives through accessible design
-            </small>
+            </span>
           </div>
 
           <div className="flex justify-center items-center gap-x-4 gap-y-5 max-w-sm flex-wrap mx-auto">
@@ -226,14 +226,14 @@ const Home = ({ works }: Props) => {
                   Featured Project
                 </h5>
                 <h6
-                  className={`mb-7 text-body2 text-3xl text-semibold font-sans2  ${
+                  className={`mb-7 text-body2 text-3xl font-semibold font-sans2  ${
                     isEven(idx) ? '' : 'text-right'
                   }`}
                 >
                   {work.title}
                 </h6>
                 <p
-                  className="mb-9 text-lg font-medium text-body2 py-7 px-12 bg-blend-[overlay,normal] backdrop-blur-2xl rounded-xl"
+                  className="font-sans2 mb-9 text-lg font-medium text-body2 py-7 px-12 bg-blend-[overlay,normal] backdrop-blur-2xl rounded-xl"
                   style={{
                     background:
                       'radial-gradient(90.16% 143.01% at 15.32% 21.04%, rgba(105, 59, 147, 0.2) 0%, rgba(110, 191, 244, 0.0447917) 77.08%, rgba(70, 144, 213, 0) 100%)',
