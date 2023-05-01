@@ -45,7 +45,7 @@ const Home = ({ works }: Props) => {
         <title>Gilbert&apos;s Portfolio</title>
       </Head>
 
-      <section className="mt-48 mb-36">
+      <section className="mt-48 md:mt-80 mb-36">
         <Container>
           <div className="flex flex-col md:flex-row gap-5 max-w-3xl">
             <div className="relative shrink-0 w-64 h-64 self-center md:self-start">
