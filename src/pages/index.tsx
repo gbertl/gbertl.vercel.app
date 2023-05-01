@@ -233,7 +233,7 @@ const Home = ({ works }: Props) => {
                   {work.title}
                 </h6>
                 <p
-                  className="font-sans2 mb-7 text-lg font-medium text-body2 py-7 px-12 bg-blend-[overlay,normal] backdrop-blur-2xl rounded-xl"
+                  className="font-sans2 mb-7 text-lg font-medium text-body2 py-6 px-8 bg-blend-[overlay,normal] backdrop-blur-2xl rounded-xl"
                   style={{
                     background:
                       'radial-gradient(90.16% 143.01% at 15.32% 21.04%, rgba(105, 59, 147, 0.2) 0%, rgba(110, 191, 244, 0.0447917) 77.08%, rgba(70, 144, 213, 0) 100%)',
