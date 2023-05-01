@@ -277,31 +277,31 @@ const Home = ({ works }: Props) => {
             have a project in mind? Let&apos;s connect.
           </p>
 
-          <div className="flex gap-7">
+          <div className="flex">
             <a
               href="mailto:gilbertlctest@gmail.com"
-              className="text-lg transition duration-[var(--duration-normal) hover:text-primary"
+              className="text-lg transition duration-[var(--duration-normal) hover:text-primary pr-7"
             >
               <FiSend />
             </a>
             <a
               href="https://www.upwork.com/freelancers/~0110dcf905a3a19183"
               target="_blank"
-              className="text-lg transition duration-[var(--duration-normal) hover:text-primary"
+              className="text-lg transition duration-[var(--duration-normal) hover:text-primary pr-7"
             >
               <SiUpwork />
             </a>
             <a
               href="https://github.com/gbertl"
               target="_blank"
-              className="text-lg transition duration-[var(--duration-normal) hover:text-primary"
+              className="text-lg transition duration-[var(--duration-normal) hover:text-primary pr-7"
             >
               <FiGithub />
             </a>
             <a
               href="https://www.linkedin.com/in/gilbertlcsndle/"
               target="_blank"
-              className="text-lg transition duration-[var(--duration-normal) hover:text-primary"
+              className="text-lg transition duration-[var(--duration-normal) hover:text-primary pr-7"
             >
               <FiLinkedin />
             </a>
