@@ -312,7 +312,7 @@ const Home = ({ works }: Props) => {
 
 export default Home;
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const { data: works } = await axios.get('https://api.gbertl.dev/api/works');
 
   return {
