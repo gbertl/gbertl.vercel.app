@@ -206,14 +206,14 @@ const Home = ({ works }: Props) => {
                     fill
                     className={`rounded-xl object-cover md:!top-7 ${
                       isEven(idx)
-                        ? 'md:!left-11'
-                        : 'md:!-left-11 md:object-right'
+                        ? 'md:!left-11 object-[top_left]'
+                        : 'md:!-left-11 md:object-[top_right]'
                     }`}
                   />
                 </div>
               </div>
               <div
-                className={`w-full md:w-7/12 md:absolute top-0 ${
+                className={`w-full md:w-7/12 md:absolute top-1/2 -translate-y-1/2 ${
                   isEven(idx) ? 'left-0' : 'right-0'
                 }`}
               >
