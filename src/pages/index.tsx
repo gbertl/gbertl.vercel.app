@@ -103,6 +103,7 @@ const Home = ({ works }: Props) => {
             products at{' '}
             <a
               href="https://www.upwork.com/freelancers/~0110dcf905a3a19183"
+              target="_blank"
               className="text-primary relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-primary after:scale-0 after:origin-left after:transition-transform after:ease-linear after:duration-[var(--duration-normal)] hover:after:scale-100"
             >
               Upwork
@@ -206,14 +207,14 @@ const Home = ({ works }: Props) => {
                     fill
                     className={`rounded-xl object-cover md:!top-7 ${
                       isEven(idx)
-                        ? 'md:!left-11 object-[top_left]'
+                        ? 'md:!left-11 md:object-[top_left]'
                         : 'md:!-left-11 md:object-[top_right]'
                     }`}
                   />
                 </div>
               </div>
               <div
-                className={`w-full md:w-7/12 md:absolute top-1/2 -translate-y-1/2 ${
+                className={`w-full md:w-7/12 md:absolute top-1/2 md:-translate-y-1/2 ${
                   isEven(idx) ? 'left-0' : 'right-0'
                 }`}
               >
@@ -232,9 +233,7 @@ const Home = ({ works }: Props) => {
                   {work.title}
                 </h6>
                 <p
-                  className={`mb-9 text-lg font-medium text-body2 py-7 px-12 bg-blend-[overlay,normal] backdrop-blur-2xl rounded-xl ${
-                    isEven(idx) ? '' : 'text-right md:text-left'
-                  }`}
+                  className="mb-9 text-lg font-medium text-body2 py-7 px-12 bg-blend-[overlay,normal] backdrop-blur-2xl rounded-xl"
                   style={{
                     background:
                       'radial-gradient(90.16% 143.01% at 15.32% 21.04%, rgba(105, 59, 147, 0.2) 0%, rgba(110, 191, 244, 0.0447917) 77.08%, rgba(70, 144, 213, 0) 100%)',
