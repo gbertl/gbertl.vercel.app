@@ -2,8 +2,26 @@ import Container from '@/components/Container';
 import Arrow from '@/icons/Arrow';
 import Head from 'next/head';
 import Image from 'next/image';
+import axios from 'axios';
+import { FiGithub, FiExternalLink } from 'react-icons/fi';
+import { isEven } from '@/utils';
 
-const Home = () => {
+interface Work {
+  _id: string;
+  thumbnailUrl: string;
+  title: string;
+  text: string;
+  category: string;
+  source: string;
+  liveUrl: string;
+  priorityOrder: number;
+}
+
+interface Props {
+  works: Work[];
+}
+
+const Home = ({ works }: Props) => {
   return (
     <>
       <Head>
@@ -82,8 +100,118 @@ const Home = () => {
           </p>
         </Container>
       </section>
+
+      <section className="mb-40">
+        <Container className="space-y-44">
+          {works.map((work, idx) => (
+            <div
+              key={work._id}
+              className={`relative flex flex-col gap-7 md:gap-0 ${
+                isEven(idx) ? 'md:flex-row-reverse' : ''
+              }`}
+            >
+              <div className="relative w-full md:w-1/2 max-w-[568px] min-h-[354px]">
+                <div
+                  className={`w-[642px] h-[720px] blur-2xl absolute top-1/2 -translate-y-1/2 -z-10 ${
+                    isEven(idx)
+                      ? 'left-0 -translate-x-1/4'
+                      : 'right-0 translate-x-1/4'
+                  }`}
+                  style={{
+                    background:
+                      'radial-gradient(50% 50% at 50% 50%, #763CAC 0%, rgba(50, 15, 133, 0) 100%)',
+                  }}
+                />
+                <div
+                  className={`w-[625px] h-[700px] blur-2xl absolute top-1/2 -translate-y-1/2 -z-10 ${
+                    isEven(idx)
+                      ? 'left-0 translate-x-[5%]'
+                      : 'right-0 -translate-x-[5%]'
+                  }`}
+                  style={{
+                    background:
+                      'radial-gradient(50% 50% at 50% 50%, #763CAC 0%, rgba(50, 15, 133, 0) 100%)',
+                  }}
+                />
+
+                <div className="w-full min-h-[354px] md:bg-valentino relative rounded-xl overflow-hidden">
+                  <Image
+                    src={work.thumbnailUrl}
+                    alt={work.title}
+                    fill
+                    className={`rounded-xl object-cover md:!top-7 ${
+                      isEven(idx)
+                        ? 'md:!left-11'
+                        : 'md:!-left-11 md:object-right'
+                    }`}
+                  />
+                </div>
+              </div>
+              <div
+                className={`w-full md:w-7/12 md:absolute top-0 ${
+                  isEven(idx) ? 'left-0' : 'right-0'
+                }`}
+              >
+                <h5
+                  className={`font-semibold font-sans2 text-secondary ${
+                    isEven(idx) ? '' : 'text-right'
+                  }`}
+                >
+                  Featured Project
+                </h5>
+                <h6
+                  className={`mb-7 text-body2 text-3xl text-semibold font-sans2  ${
+                    isEven(idx) ? '' : 'text-right'
+                  }`}
+                >
+                  {work.title}
+                </h6>
+                <p
+                  className={`mb-9 text-lg font-medium text-body2 py-7 px-12 bg-blend-[overlay,normal] backdrop-blur-2xl rounded-xl ${
+                    isEven(idx) ? '' : 'text-right md:text-left'
+                  }`}
+                  style={{
+                    background:
+                      'radial-gradient(90.16% 143.01% at 15.32% 21.04%, rgba(105, 59, 147, 0.2) 0%, rgba(110, 191, 244, 0.0447917) 77.08%, rgba(70, 144, 213, 0) 100%)',
+                  }}
+                >
+                  {work.text}
+                </p>
+                <div
+                  className={`flex gap-4 text-3xl ${
+                    isEven(idx) ? '' : 'justify-end'
+                  }`}
+                >
+                  <a
+                    href={work.source}
+                    className="transition duration-[var(--duration-normal)] hover:text-primary"
+                  >
+                    <FiGithub />
+                  </a>
+                  <a
+                    href={work.liveUrl}
+                    className="transition duration-[var(--duration-normal)] hover:text-primary"
+                  >
+                    <FiExternalLink />
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Container>
+      </section>
     </>
   );
 };
 
 export default Home;
+
+export const getStaticProps = async () => {
+  const { data: works } = await axios.get('https://api.gbertl.dev/api/works');
+
+  return {
+    props: {
+      works,
+    },
+  };
+};
