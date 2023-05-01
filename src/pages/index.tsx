@@ -249,12 +249,14 @@ const Home = ({ works }: Props) => {
                 >
                   <a
                     href={work.source}
+                    target="_blank"
                     className="transition duration-[var(--duration-normal)] hover:text-primary"
                   >
                     <FiGithub />
                   </a>
                   <a
                     href={work.liveUrl}
+                    target="_blank"
                     className="transition duration-[var(--duration-normal)] hover:text-primary"
                   >
                     <FiExternalLink />
