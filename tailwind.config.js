@@ -9,6 +9,8 @@ module.exports = {
         secondary: '#9857D3',
         haiti: '#120926',
         valentino: '#2B0B3A',
+        lightViolet: '#A362FF',
+        bleachedCedar: '#251C31',
       },
       fontFamily: {
         sans: ['Plus Jakarta Sans', 'sans-serif'],

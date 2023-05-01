@@ -5,6 +5,20 @@ import Image from 'next/image';
 import axios from 'axios';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
 import { isEven } from '@/utils';
+import ReactCardFlip from 'react-card-flip';
+import { useState } from 'react';
+
+const logos = [
+  { name: 'Typescript', path: '/logos/ts.png' },
+  { name: 'Python', path: '/logos/python.svg' },
+  { name: 'React', path: '/logos/react.png' },
+  { name: 'NodeJS', path: '/logos/nodejs.svg' },
+  { name: 'Django', path: '/logos/django.svg' },
+  { name: 'Material UI', path: '/logos/mui.png' },
+  { name: 'TailwindCSS', path: '/logos/tailwind.png' },
+  { name: 'Bootstrap', path: '/logos/bootstrap.svg' },
+  { name: 'CSS3', path: '/logos/css3.png' },
+];
 
 interface Work {
   _id: string;
@@ -22,6 +36,8 @@ interface Props {
 }
 
 const Home = ({ works }: Props) => {
+  const [activeFlipped, setActiveFlipped] = useState<string[]>([]);
+
   return (
     <>
       <Head>
@@ -198,6 +214,54 @@ const Home = ({ works }: Props) => {
               </div>
             </div>
           ))}
+        </Container>
+      </section>
+
+      <section className="mb-56">
+        <Container>
+          <div className="text-center mb-8">
+            <h3 className="text-2xl">
+              I&apos;m currently looking to join a{' '}
+              <span className="text-lightViolet">cross-functional</span> team
+            </h3>
+            <small className="font-heading">
+              that values improving peoples lives through accessible design
+            </small>
+          </div>
+
+          <div className="flex justify-center items-center gap-x-4 gap-y-5 max-w-sm flex-wrap mx-auto">
+            {logos.map((logo, idx) => (
+              <ReactCardFlip
+                key={logo.name}
+                isFlipped={activeFlipped.includes(logo.name)}
+              >
+                <div
+                  className="relative bg-bleachedCedar rounded-full w-14 h-14 grid place-items-center cursor-pointer"
+                  onClick={() =>
+                    setActiveFlipped((prev) => [...prev, logo.name])
+                  }
+                >
+                  <Image
+                    src={logo.path}
+                    alt={logo.name}
+                    width={38}
+                    height={38}
+                  />
+                </div>
+
+                <div
+                  className="relative bg-bleachedCedar rounded-full w-14 h-14 grid place-items-center cursor-pointer text-xs text-center"
+                  onClick={() =>
+                    setActiveFlipped((prev) =>
+                      prev.filter((flippedName) => flippedName !== logo.name)
+                    )
+                  }
+                >
+                  {logo.name}
+                </div>
+              </ReactCardFlip>
+            ))}
+          </div>
         </Container>
       </section>
     </>
