@@ -250,7 +250,7 @@ const Home = ({ works }: Props) => {
                     <span key={idx}>{c}</span>
                   ))}
                 </div>
-                {work.source && work.liveUrl && (
+                {(work.source || work.liveUrl) && (
                   <div
                     className={`flex gap-4 text-3xl mt-9 ${
                       isEven(idx) ? '' : 'justify-end'
