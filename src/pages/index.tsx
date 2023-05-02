@@ -10,14 +10,17 @@ import ReactCardFlip from 'react-card-flip';
 import { useState } from 'react';
 
 const logos = [
-  { name: 'Typescript', path: '/logos/ts.png' },
-  { name: 'Python', path: '/logos/python.svg' },
+  { name: 'NextJS', path: '/logos/next.png' },
   { name: 'React', path: '/logos/react.png' },
-  { name: 'NodeJS', path: '/logos/nodejs.svg' },
+  { name: 'NodeJS', path: '/logos/node.png' },
   { name: 'Django', path: '/logos/django.svg' },
-  { name: 'Material UI', path: '/logos/mui.png' },
-  { name: 'TailwindCSS', path: '/logos/tailwind.png' },
+  { name: 'Python', path: '/logos/python.svg' },
+  { name: 'Tailwind', path: '/logos/tailwind.png' },
   { name: 'Bootstrap', path: '/logos/bootstrap.svg' },
+  { name: 'Material UI', path: '/logos/mui.png' },
+  { name: 'Typescript', path: '/logos/ts.png' },
+  { name: 'SASS', path: '/logos/sass.png' },
+  { name: 'HTML5', path: '/logos/html5.svg' },
   { name: 'CSS3', path: '/logos/css3.png' },
 ];
 
@@ -131,14 +134,14 @@ const Home = ({ works }: Props) => {
             </span>
           </div>
 
-          <div className="flex justify-center items-center gap-x-4 gap-y-5 max-w-sm flex-wrap mx-auto">
+          <div className="flex justify-center items-center gap-x-4 gap-y-5 max-w-lg flex-wrap mx-auto">
             {logos.map((logo, idx) => (
               <ReactCardFlip
                 key={logo.name}
                 isFlipped={activeFlipped.includes(logo.name)}
               >
                 <div
-                  className="relative bg-bleachedCedar rounded-full w-14 h-14 grid place-items-center cursor-pointer"
+                  className="relative bg-bleachedCedar rounded-full w-11 h-11 grid place-items-center cursor-pointer"
                   onClick={() =>
                     setActiveFlipped((prev) => [...prev, logo.name])
                   }
@@ -146,13 +149,13 @@ const Home = ({ works }: Props) => {
                   <Image
                     src={logo.path}
                     alt={logo.name}
-                    width={38}
-                    height={38}
+                    width={28}
+                    height={28}
                   />
                 </div>
 
                 <div
-                  className="relative bg-bleachedCedar rounded-full w-14 h-14 grid place-items-center cursor-pointer text-xs text-center"
+                  className="relative bg-bleachedCedar rounded-full w-11 h-11 grid place-items-center cursor-pointer text-xs text-center"
                   onClick={() =>
                     setActiveFlipped((prev) =>
                       prev.filter((flippedName) => flippedName !== logo.name)
