@@ -39,6 +39,90 @@
       rgba(70, 144, 213, 0) 100%
     );
 
-    @apply backdrop-blur-2xl absolute w-full h-full -z-10 opacity-0 md:opacity-100 transition duration-[var(--duration-normal)];
+    @apply backdrop-blur-2xl absolute w-full h-full -z-10 opacity-100 transition duration-[var(--duration-normal)];
+  }
+
+  .nav-toggle {
+    @apply bg-transparent absolute right-0 top-1/2 h-12 w-12 cursor-pointer -translate-y-1/2;
+  }
+
+  .nav-toggle span,
+  .nav-toggle span:before,
+  .nav-toggle span:after {
+    @apply cursor-pointer rounded-sm h-[2px] w-9 bg-white absolute left-0 top-1/2 block content-[''];
+  }
+
+  .nav-toggle span:before {
+    @apply -top-[10px];
+  }
+
+  .nav-toggle span:after {
+    @apply top-[10px];
+  }
+
+  .nav-toggle span,
+  .nav-toggle span:before,
+  .nav-toggle span:after {
+    @apply transition duration-[var(--duration-normal)] ease-in-out;
+  }
+
+  .nav-toggle.active span {
+    @apply bg-transparent;
+  }
+
+  .nav-toggle.active span:before,
+  .nav-toggle.active span:after {
+    @apply top-0;
+  }
+
+  .nav-toggle.active span:before {
+    @apply rotate-[135deg];
+  }
+
+  .nav-toggle.active span:after {
+    @apply -rotate-[135deg];
+  }
+
+  .mobile-nav {
+    @apply opacity-0 transition duration-[var(--duration-normal)] delay-[var(--duration-normal)];
+  }
+
+  .mobile-nav > div {
+    @apply transition duration-[var(--duration-normal)];
+  }
+
+  .mobile-nav.active {
+    @apply opacity-100 delay-0;
+  }
+
+  .mobile-nav.active > div {
+    animation: showNav var(--duration-normal);
+  }
+
+  .mobile-nav.not-active > div {
+    animation: hideNav var(--duration-normal) forwards;
+  }
+
+  @keyframes hideNav {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      width: 80%;
+      transform: translateX(0);
+    }
+    100% {
+      width: 75%;
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes showNav {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
   }
 }
