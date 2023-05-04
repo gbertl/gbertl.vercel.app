@@ -172,7 +172,7 @@ const Home = ({ works }: Props) => {
 
       <section className="mb-40" id="work">
         <Container className="space-y-44">
-          {works.map((work, idx) => (
+          {works?.map((work, idx) => (
             <div
               key={work._id}
               className={`relative flex flex-col gap-7 md:gap-0 ${
