@@ -138,6 +138,8 @@ const Navbar = () => {
             className={`nav-toggle ${expanded ? 'active' : ''}`}
           >
             <span></span>
+            <span></span>
+            <span></span>
           </button>
         </div>
 

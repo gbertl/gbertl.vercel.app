@@ -46,40 +46,38 @@
     @apply bg-transparent absolute right-0 top-1/2 h-12 w-12 cursor-pointer -translate-y-1/2;
   }
 
-  .nav-toggle span,
-  .nav-toggle span:before,
-  .nav-toggle span:after {
-    @apply cursor-pointer rounded-sm h-[2px] w-9 bg-white absolute left-0 top-1/2 block content-[''];
+  .nav-toggle span:first-child,
+  .nav-toggle span:nth-child(2),
+  .nav-toggle span:last-child {
+    @apply cursor-pointer rounded-sm h-[2px] w-9 bg-white absolute left-0 top-1/2 block content-[''] transition duration-[var(--duration-normal)] ease-in-out;
   }
 
-  .nav-toggle span:before {
-    @apply -top-[10px];
+  .nav-toggle span:first-child {
+    @apply top-[14px];
   }
 
-  .nav-toggle span:after {
-    @apply top-[10px];
+  .nav-toggle span:nth-child(2) {
+    @apply !w-6 left-[12px];
   }
 
-  .nav-toggle span,
-  .nav-toggle span:before,
-  .nav-toggle span:after {
-    @apply transition duration-[var(--duration-normal)] ease-in-out;
+  .nav-toggle span:last-child {
+    @apply top-[34px];
   }
 
-  .nav-toggle.active span {
-    @apply bg-transparent;
+  .nav-toggle.active span:nth-child(2) {
+    @apply translate-x-full opacity-0;
   }
 
-  .nav-toggle.active span:before,
-  .nav-toggle.active span:after {
-    @apply top-0;
+  .nav-toggle.active span:first-child,
+  .nav-toggle.active span:last-child {
+    @apply top-[24px];
   }
 
-  .nav-toggle.active span:before {
+  .nav-toggle.active span:first-child {
     @apply rotate-[135deg];
   }
 
-  .nav-toggle.active span:after {
+  .nav-toggle.active span:last-child {
     @apply -rotate-[135deg];
   }
 
