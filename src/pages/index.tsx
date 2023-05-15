@@ -81,14 +81,14 @@ const Home = ({ works }: Props) => {
               <h2 className="relative">
                 <span className="text-lg capitalize block md:absolute md:top-0 md:left-0 md:-translate-y-[400%] md:-translate-x-1/4">
                   <Arrow className="hidden md:block absolute top-0 left-0 -translate-x-[90%] -translate-y-[15%]" />
-                  Hello! I am <span className="text-primary">Gilbert</span>
+                  Hello! I am <span className="text-secondary">Gilbert</span>
                 </span>
                 A Web Developer
               </h2>
 
               <p className="font-heading text-5xl">
                 I like to code things from{' '}
-                <span className="text-primary">scratch</span>...
+                <span className="text-secondary">scratch</span>...
               </p>
               <small className="font-heading row-start-3 col-start-2">
                 Bringing ideas to life in the browser is what I enjoys the most.
@@ -107,7 +107,7 @@ const Home = ({ works }: Props) => {
             <a
               href="https://www.upwork.com/freelancers/~0110dcf905a3a19183"
               target="_blank"
-              className="text-primary relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-primary after:scale-0 after:origin-left after:transition-transform after:ease-linear after:duration-[var(--duration-normal)] hover:after:scale-100"
+              className="text-secondary relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-secondary after:scale-0 after:origin-left after:transition-transform after:ease-linear after:duration-[var(--duration-normal)] hover:after:scale-100"
             >
               Upwork
             </a>
