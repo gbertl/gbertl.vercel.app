@@ -203,7 +203,11 @@ const Home = ({ works }: Props) => {
                   }}
                 />
 
-                <div className="w-full min-h-[354px] md:bg-valentino relative rounded-xl overflow-hidden">
+                <a
+                  href={work.liveUrl || work.thumbnailUrl}
+                  target="_blank"
+                  className="block w-full min-h-[354px] md:bg-valentino relative rounded-xl overflow-hidden"
+                >
                   <Image
                     src={work.thumbnailUrl}
                     alt={work.title}
@@ -214,7 +218,7 @@ const Home = ({ works }: Props) => {
                         : 'md:!-left-11 md:object-[top_right]'
                     }`}
                   />
-                </div>
+                </a>
               </div>
               <div
                 className={`w-full md:w-7/12 md:absolute top-1/2 md:-translate-y-1/2 ${
