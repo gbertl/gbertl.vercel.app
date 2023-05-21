@@ -115,7 +115,7 @@ const Home = ({ works }: Props) => {
           </p>
 
           <p className="text-xl font-heading">
-            A Philippine based web developer who is passionate about creating
+            A Philippine based developer who is passionate about creating
             beautiful and joyful digital experiences. Besides coding, I love
             music, games and travelling.
           </p>
