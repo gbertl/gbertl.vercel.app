@@ -101,24 +101,27 @@ const Home = ({ works }: Props) => {
       <section className="mb-56" id="about">
         <Container>
           <h1 className="text-5xl mb-3">I&apos;m a Full-Stack Developer.</h1>
-          <p className="text-xl font-heading mb-20">
-            Currently, I&apos;m focused on building accessible, human-centered
-            products at{' '}
-            <a
-              href="https://www.upwork.com/freelancers/~0110dcf905a3a19183"
-              target="_blank"
-              className="text-secondary relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-secondary after:scale-0 after:origin-left after:transition-transform after:ease-linear after:duration-[var(--duration-normal)] hover:after:scale-100"
-            >
-              Upwork
-            </a>
-            .
-          </p>
+          <div className="flex flex-col gap-20 text-xl font-heading lg:w-4/5">
+            <p>
+              Philippine-based who is passionate about creating interactive
+              applications and experiences on the web 💻.
+            </p>
 
-          <p className="text-xl font-heading">
-            A Philippine based developer who is passionate about creating
-            beautiful and joyful digital experiences. Besides coding, I love
-            music, games and travelling.
-          </p>
+            <p>
+              I&apos;m quietly confident, naturally curious, and perpetually
+              working on improving my coding skills in my free time. My main
+              focus these days is building products and leading projects for my
+              clients at{' '}
+              <a
+                href="https://www.upwork.com/freelancers/~0110dcf905a3a19183"
+                target="_blank"
+                className="text-secondary relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-secondary after:scale-0 after:origin-left after:transition-transform after:ease-linear after:duration-[var(--duration-normal)] hover:after:scale-100"
+              >
+                Upwork
+              </a>
+              .
+            </p>
+          </div>
         </Container>
       </section>
 
