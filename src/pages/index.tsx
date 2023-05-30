@@ -2,7 +2,7 @@ import Container from '@/components/Container';
 import Arrow from '@/icons/Arrow';
 import Head from 'next/head';
 import Image from 'next/image';
-import axios from 'axios';
+import axios from '../config/axios';
 import { FiGithub, FiExternalLink, FiSend, FiLinkedin } from 'react-icons/fi';
 import { SiUpwork } from 'react-icons/si';
 import { isEven } from '@/utils';
@@ -339,9 +339,7 @@ const Home = ({ works }: Props) => {
 export default Home;
 
 export const getStaticProps = async () => {
-  const { data: works } = await axios.get(
-    'https://api.gbertl.dev/api/works?sort[priorityOrder]=1'
-  );
+  const { data: works } = await axios.get('/works?sort[priorityOrder]=1');
 
   return {
     props: {
