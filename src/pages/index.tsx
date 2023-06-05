@@ -32,6 +32,7 @@ interface Work {
   category: string;
   source: string;
   liveUrl: string;
+  type: string;
   priorityOrder: number;
 }
 
@@ -229,11 +230,11 @@ const Home = ({ works }: Props) => {
                 }`}
               >
                 <h5
-                  className={`font-semibold font-sans2 text-secondary ${
+                  className={`font-semibold font-sans2 text-secondary capitalize ${
                     isEven(idx) ? '' : 'text-right'
                   }`}
                 >
-                  Featured Project
+                  {work.type} Project
                 </h5>
                 <h6
                   className={`mb-7 text-body2 text-3xl font-semibold font-sans2  ${
