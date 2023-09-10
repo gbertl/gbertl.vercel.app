@@ -109,18 +109,17 @@ const Home = ({ works }: Props) => {
             </p>
 
             <p>
-              I&apos;m quietly confident, naturally curious, and perpetually
-              working on improving my coding skills in my free time. My main
-              focus these days is building products and leading projects for my
-              clients at{' '}
+              I&apos;m quietly confident, naturally curious, and always eager to
+              improve my coding skills in my free time. Right now, I&apos;m all
+              about creating amazing products for my clients on{' '}
               <a
                 href="https://www.upwork.com/freelancers/~0110dcf905a3a19183"
                 target="_blank"
                 className="text-secondary relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-secondary after:scale-0 after:origin-left after:transition-transform after:ease-linear after:duration-[var(--duration-normal)] hover:after:scale-100"
               >
                 Upwork
-              </a>
-              .
+              </a>{' '}
+              and diving into exciting projects.
             </p>
           </div>
         </Container>
