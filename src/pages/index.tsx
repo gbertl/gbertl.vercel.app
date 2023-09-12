@@ -130,7 +130,7 @@ const Home = ({ works }: Props) => {
           <div className="text-center mb-8">
             <h3 className="text-2xl">
               I&apos;m currently looking to join a{' '}
-              <span className="text-lightViolet">cross-functional</span> team
+              <span className="text-secondary">cross-functional</span> team
             </h3>
             <span className="font-heading text-lg">
               that values improving peoples lives through accessible design
