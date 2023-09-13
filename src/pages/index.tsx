@@ -257,7 +257,12 @@ const Home = ({ works }: Props) => {
                   }`}
                 >
                   {work.category.split(',').map((c, idx) => (
-                    <span key={idx}>{c}</span>
+                    <span
+                      key={idx}
+                      className="bg-[#42176E] text-[#B57AF0] bg-opacity-50 backdrop-blur-md py-2 px-3 rounded-full text-xs font-medium"
+                    >
+                      {c}
+                    </span>
                   ))}
                 </div>
                 {(work.source || work.liveUrl) && (
