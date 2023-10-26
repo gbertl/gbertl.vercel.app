@@ -129,12 +129,10 @@ const Home = ({ works }: Props) => {
         <Container>
           <div className="text-center mb-8">
             <h3 className="text-2xl">
-              I&apos;m currently looking to join a{' '}
-              <span className="text-secondary">cross-functional</span> team
+              I&apos;m actively searching for cool{' '}
+              <span className="text-secondary">web gigs</span> to spice up the
+              internet.
             </h3>
-            <span className="font-heading text-lg">
-              that values improving peoples lives through accessible design
-            </span>
           </div>
 
           <div className="flex justify-center items-center gap-x-4 gap-y-5 max-w-lg flex-wrap mx-auto">
