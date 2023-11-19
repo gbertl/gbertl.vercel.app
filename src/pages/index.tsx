@@ -105,21 +105,16 @@ const Home = ({ works }: Props) => {
           <div className="flex flex-col gap-20 text-xl font-heading lg:w-4/5">
             <p>
               Philippine-based who is passionate about creating interactive
-              applications and experiences on the web 💻.
-            </p>
-
-            <p>
-              I&apos;m quietly confident, naturally curious, and always eager to
-              improve my coding skills in my free time. Right now, I&apos;m all
-              about creating amazing products for my clients on{' '}
+              applications and experiences on the web 💻. My main focus these
+              days is building amazing products for my clients on{' '}
               <a
                 href="https://www.upwork.com/freelancers/~0110dcf905a3a19183"
                 target="_blank"
                 className="text-secondary relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-secondary after:scale-0 after:origin-left after:transition-transform after:ease-linear after:duration-[var(--duration-normal)] hover:after:scale-100"
               >
                 Upwork
-              </a>{' '}
-              and diving into exciting projects.
+              </a>
+              .
             </p>
           </div>
         </Container>
@@ -127,11 +122,12 @@ const Home = ({ works }: Props) => {
 
       <section className="mb-56">
         <Container>
-          <div className="text-center mb-8">
+          <div className="text-center mb-8 w-3/4 mx-auto">
             <h3 className="text-2xl">
-              I&apos;m actively searching for cool{' '}
-              <span className="text-secondary">web gigs</span> to spice up the
-              internet.
+              I&apos;m actively seeking{' '}
+              <span className="text-secondary">web gigs</span>. If you have any
+              web development projects available, I&apos;d love to discuss how I
+              can contribute!
             </h3>
           </div>
 
