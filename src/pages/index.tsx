@@ -293,38 +293,38 @@ const Home = ({ works }: Props) => {
 
       <section className="mb-56" id="contact">
         <Container>
-          <h2 className="text-2xl mb-16">Contact</h2>
+          <h2 className="text-2xl mb-12">Contact</h2>
           <p className="font-heading mb-8 md:w-3/5 text-sm">
-            I&apos;m currently looking to join a cross-functional team that
-            values improving people&apos;s lives through accessible design. or
-            have a project in mind? Let&apos;s connect.
+            Got a vision? Let&apos;s code it into reality! Contact me to
+            kickstart your project.
           </p>
 
-          <div className="flex">
+          <div className="flex items-center gap-5">
             <a
               href="mailto:gilbertlctest@gmail.com"
-              className="text-lg transition duration-[var(--duration-normal) hover:text-primary pr-7"
+              className="text-lg transition duration-[var(--duration-normal) bg-primary text-white py-2 px-3 rounded-lg flex items-center gap-2 hover:opacity-80"
             >
               <FiSend />
+              <span className="text-xs">Let&apos;s chat!</span>
             </a>
             <a
               href="https://www.upwork.com/freelancers/~0110dcf905a3a19183"
               target="_blank"
-              className="text-lg transition duration-[var(--duration-normal) hover:text-primary pr-7"
+              className="text-lg transition duration-[var(--duration-normal) hover:text-primary"
             >
               <SiUpwork />
             </a>
             <a
               href="https://github.com/gbertl"
               target="_blank"
-              className="text-lg transition duration-[var(--duration-normal) hover:text-primary pr-7"
+              className="text-lg transition duration-[var(--duration-normal) hover:text-primary"
             >
               <FiGithub />
             </a>
             <a
               href="https://www.linkedin.com/in/gilbertlcsndle/"
               target="_blank"
-              className="text-lg transition duration-[var(--duration-normal) hover:text-primary pr-7"
+              className="text-lg transition duration-[var(--duration-normal) hover:text-primary"
             >
               <FiLinkedin />
             </a>
