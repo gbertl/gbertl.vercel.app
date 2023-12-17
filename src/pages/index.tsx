@@ -43,6 +43,13 @@ interface Props {
 const Home = ({ works }: Props) => {
   const [activeFlipped, setActiveFlipped] = useState<string[]>([]);
 
+  const sendEmail = () => {
+    const username = 'gilbertlcsndle';
+    const domain = 'gmail.com';
+
+    window.open(`mailto:${username}@${domain}`);
+  };
+
   return (
     <>
       <Head>
@@ -300,13 +307,13 @@ const Home = ({ works }: Props) => {
           </p>
 
           <div className="flex items-center gap-5">
-            <a
-              href="mailto:gilbertlctest@gmail.com"
+            <button
               className="text-lg transition duration-[var(--duration-normal) bg-primary text-white py-2 px-3 rounded-lg flex items-center gap-2 hover:opacity-80"
+              onClick={sendEmail}
             >
               <FiSend />
               <span className="text-xs">Let&apos;s chat!</span>
-            </a>
+            </button>
             <a
               href="https://www.upwork.com/freelancers/~0110dcf905a3a19183"
               target="_blank"
