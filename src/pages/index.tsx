@@ -109,11 +109,13 @@ const Home = ({ works }: Props) => {
       <section className="mb-56" id="about">
         <Container>
           <h1 className="text-5xl mb-3">I&apos;m a Full-Stack Developer.</h1>
-          <div className="flex flex-col gap-20 text-xl font-heading lg:w-4/5">
+          <div className="flex flex-col gap-20 text-xl font-heading lg:w-3/4">
             <p>
-              Philippine-based who is passionate about creating interactive
-              applications and experiences on the web 💻. My main focus these
-              days is building amazing products for my clients on{' '}
+              🇵🇭 Philippine-based with a passion for creating dynamic and
+              user-friendly web applications 💻. With a strong foundation in
+              both front-end and back-end technologies, I bring creativity and
+              technical expertise to every project I undertake. As a top-rated
+              freelancer on{' '}
               <a
                 href="https://www.upwork.com/freelancers/~0110dcf905a3a19183"
                 target="_blank"
@@ -121,7 +123,8 @@ const Home = ({ works }: Props) => {
               >
                 Upwork
               </a>
-              .
+              , I have a proven track record of delivering high-quality web
+              development services.
             </p>
           </div>
         </Container>
@@ -300,19 +303,14 @@ const Home = ({ works }: Props) => {
 
       <section className="mb-56" id="contact">
         <Container>
-          <h2 className="text-2xl mb-12">Contact</h2>
-          <p className="font-heading mb-8 md:w-3/5 text-sm">
-            Got a vision? Let&apos;s code it into reality! Contact me to
-            kickstart your project.
-          </p>
-
+          <h2 className="text-2xl mb-8">Contact</h2>
           <div className="flex items-center gap-5">
             <button
               className="text-lg transition duration-[var(--duration-normal) bg-primary text-white py-2 px-3 rounded-lg flex items-center gap-2 hover:opacity-80"
               onClick={sendEmail}
             >
               <FiSend />
-              <span className="text-xs">Let&apos;s chat!</span>
+              <span className="text-xs">Let&apos;s chat</span>
             </button>
             <a
               href="https://www.upwork.com/freelancers/~0110dcf905a3a19183"
