@@ -110,17 +110,17 @@ const Home = ({ works }: Props) => {
               🇵🇭 Philippine-based with a passion for creating dynamic and
               user-friendly web applications 💻. With a strong foundation in
               both front-end and back-end technologies, I bring creativity and
-              technical expertise to every project I undertake. As a top-rated
-              freelancer on{' '}
+              technical expertise to every project I undertake. My top-rated
+              status on{' '}
               <a
                 href="https://www.upwork.com/freelancers/~0110dcf905a3a19183"
                 target="_blank"
                 className="text-secondary relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-secondary after:scale-0 after:origin-left after:transition-transform after:ease-linear after:duration-[var(--duration-normal)] hover:after:scale-100"
               >
                 Upwork
-              </a>
-              , I have a proven track record of delivering high-quality web
-              development services.
+              </a>{' '}
+              reflects my commitment to delivering top-notch web development
+              services.
             </p>
           </div>
         </Container>
