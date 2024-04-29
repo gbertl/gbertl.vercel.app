@@ -6,8 +6,6 @@ import axios from '../config/axios';
 import { FiGithub, FiExternalLink, FiSend, FiLinkedin } from 'react-icons/fi';
 import { SiUpwork } from 'react-icons/si';
 import { isEven } from '@/utils';
-import ReactCardFlip from 'react-card-flip';
-import { useState } from 'react';
 
 const logos = [
   { name: 'NextJS', path: '/logos/next.png' },
@@ -41,8 +39,6 @@ interface Props {
 }
 
 const Home = ({ works }: Props) => {
-  const [activeFlipped, setActiveFlipped] = useState<string[]>([]);
-
   const sendEmail = () => {
     const username = 'gilbertlcsndle';
     const domain = 'gmail.com';
@@ -143,35 +139,12 @@ const Home = ({ works }: Props) => {
 
           <div className="flex justify-center items-center gap-x-4 gap-y-5 max-w-lg flex-wrap mx-auto">
             {logos.map((logo, idx) => (
-              <ReactCardFlip
-                key={logo.name}
-                isFlipped={activeFlipped.includes(logo.name)}
+              <div
+                className="relative bg-bleachedCedar rounded-full w-11 h-11 grid place-items-center cursor-pointer"
+                key={idx}
               >
-                <div
-                  className="relative bg-bleachedCedar rounded-full w-11 h-11 grid place-items-center cursor-pointer"
-                  onClick={() =>
-                    setActiveFlipped((prev) => [...prev, logo.name])
-                  }
-                >
-                  <Image
-                    src={logo.path}
-                    alt={logo.name}
-                    width={28}
-                    height={28}
-                  />
-                </div>
-
-                <div
-                  className="relative bg-bleachedCedar rounded-full w-11 h-11 grid place-items-center cursor-pointer text-xs text-center"
-                  onClick={() =>
-                    setActiveFlipped((prev) =>
-                      prev.filter((flippedName) => flippedName !== logo.name)
-                    )
-                  }
-                >
-                  {logo.name}
-                </div>
-              </ReactCardFlip>
+                <Image src={logo.path} alt={logo.name} width={28} height={28} />
+              </div>
             ))}
           </div>
         </Container>
