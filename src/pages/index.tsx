@@ -10,7 +10,7 @@ import { isEven } from '@/utils';
 const logos = [
   { name: 'NextJS', path: '/logos/next.png' },
   { name: 'React', path: '/logos/react.png' },
-  { name: 'NodeJS', path: '/logos/node.png' },
+  { name: 'Node', path: '/logos/node.png' },
   { name: 'Django', path: '/logos/django.svg' },
   { name: 'Python', path: '/logos/python.svg' },
   { name: 'Tailwind', path: '/logos/tailwind.png' },
@@ -140,8 +140,22 @@ const Home = ({ works }: Props) => {
           <div className="flex justify-center items-center gap-x-4 gap-y-5 max-w-lg flex-wrap mx-auto">
             {logos.map((logo, idx) => (
               <div
-                className="relative bg-bleachedCedar rounded-full w-11 h-11 grid place-items-center cursor-pointer"
+                className="relative bg-bleachedCedar rounded-full w-11 h-11 grid place-items-center cursor-pointer hover:opacity-75 transition duration-[var(--duration-normal)]"
                 key={idx}
+                onClick={() => {
+                  const matchedWork = works.find((work) =>
+                    work.category
+                      .split(',')
+                      .map((c) => c.toLowerCase().trim())
+                      .includes(logo.name.toLowerCase())
+                  );
+
+                  if (matchedWork) {
+                    document
+                      .getElementById(matchedWork._id)
+                      ?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
               >
                 <Image src={logo.path} alt={logo.name} width={28} height={28} />
               </div>
@@ -158,6 +172,7 @@ const Home = ({ works }: Props) => {
               className={`relative flex flex-col gap-7 md:gap-0 ${
                 isEven(idx) ? 'md:flex-row-reverse' : ''
               }`}
+              id={work._id}
             >
               <div className="relative w-full md:w-1/2 max-w-[568px] min-h-[354px]">
                 <div
