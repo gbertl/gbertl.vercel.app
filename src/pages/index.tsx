@@ -2,10 +2,11 @@ import Container from '@/components/Container';
 import Arrow from '@/icons/Arrow';
 import Head from 'next/head';
 import Image from 'next/image';
-import axios from '../config/axios';
 import { FiGithub, FiExternalLink, FiSend, FiLinkedin } from 'react-icons/fi';
 import { SiUpwork } from 'react-icons/si';
 import { isEven } from '@/utils';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../config/firebase';
 
 const logos = [
   { name: 'NextJS', path: '/logos/next.png' },
@@ -23,7 +24,7 @@ const logos = [
 ];
 
 interface Work {
-  _id: string;
+  id: string;
   thumbnailUrl: string;
   title: string;
   text: string;
@@ -152,7 +153,7 @@ const Home = ({ works }: Props) => {
 
                   if (matchedWork) {
                     document
-                      .getElementById(matchedWork._id)
+                      .getElementById(matchedWork.id)
                       ?.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
@@ -166,126 +167,128 @@ const Home = ({ works }: Props) => {
 
       <section className="mb-40" id="work">
         <Container className="space-y-44">
-          {works?.map((work, idx) => (
-            <div
-              key={work._id}
-              className={`relative flex flex-col gap-7 md:gap-0 ${
-                isEven(idx) ? 'md:flex-row-reverse' : ''
-              }`}
-              id={work._id}
-            >
-              <div className="relative w-full md:w-1/2 max-w-[568px] min-h-[354px]">
-                <div
-                  className={`w-[642px] h-[720px] blur-2xl absolute top-1/2 -translate-y-1/2 -z-10 ${
-                    isEven(idx)
-                      ? 'left-0 -translate-x-1/4'
-                      : 'right-0 translate-x-1/4'
-                  }`}
-                  style={{
-                    background:
-                      'radial-gradient(50% 50% at 50% 50%, #763CAC 0%, rgba(50, 15, 133, 0) 100%)',
-                  }}
-                />
-                <div
-                  className={`w-[625px] h-[700px] blur-2xl absolute top-1/2 -translate-y-1/2 -z-10 ${
-                    isEven(idx)
-                      ? 'left-0 translate-x-[5%]'
-                      : 'right-0 -translate-x-[5%]'
-                  }`}
-                  style={{
-                    background:
-                      'radial-gradient(50% 50% at 50% 50%, #763CAC 0%, rgba(50, 15, 133, 0) 100%)',
-                  }}
-                />
-
-                <a
-                  href={work.liveUrl || work.thumbnailUrl}
-                  target="_blank"
-                  className="block w-full min-h-[354px] md:bg-valentino relative rounded-xl overflow-hidden"
-                >
-                  <Image
-                    src={work.thumbnailUrl}
-                    alt={work.title}
-                    fill
-                    className={`rounded-xl object-cover md:!top-7 ${
-                      isEven(idx)
-                        ? 'md:!left-11 md:object-[top_left]'
-                        : 'md:!-left-11 md:object-[top_right]'
-                    }`}
-                  />
-                </a>
-              </div>
+          {works
+            ?.sort((a, b) => a.priorityOrder - b.priorityOrder)
+            .map((work, idx) => (
               <div
-                className={`w-full md:w-7/12 md:absolute top-1/2 md:-translate-y-1/2 ${
-                  isEven(idx) ? 'left-0' : 'right-0'
+                key={work.id}
+                className={`relative flex flex-col gap-7 md:gap-0 ${
+                  isEven(idx) ? 'md:flex-row-reverse' : ''
                 }`}
+                id={work.id}
               >
-                <h5
-                  className={`font-semibold font-sans2 text-secondary capitalize ${
-                    isEven(idx) ? '' : 'text-right'
-                  }`}
-                >
-                  {work.type} Project
-                </h5>
-                <h6
-                  className={`mb-7 text-body2 text-3xl font-semibold font-sans2  ${
-                    isEven(idx) ? '' : 'text-right'
-                  }`}
-                >
-                  {work.title}
-                </h6>
-                <p
-                  className="font-sans2 mb-7 text-lg font-medium text-body2 py-6 px-8 bg-blend-[overlay,normal] backdrop-blur-2xl rounded-xl"
-                  style={{
-                    background:
-                      'radial-gradient(90.16% 143.01% at 15.32% 21.04%, rgba(105, 59, 147, 0.2) 0%, rgba(110, 191, 244, 0.0447917) 77.08%, rgba(70, 144, 213, 0) 100%)',
-                  }}
-                >
-                  {work.text}
-                </p>
-                <div
-                  className={`flex gap-3 flex-wrap whitespace-nowrap text-sm text-body-2 font-sans2 font-light ${
-                    isEven(idx) ? '' : 'justify-end'
-                  }`}
-                >
-                  {work.category.split(',').map((c, idx) => (
-                    <span
-                      key={idx}
-                      className="bg-[#42176E] text-[#B57AF0] bg-opacity-50 backdrop-blur-md py-2 px-3 rounded-full text-xs font-medium"
-                    >
-                      {c}
-                    </span>
-                  ))}
-                </div>
-                {(work.source || work.liveUrl) && (
+                <div className="relative w-full md:w-1/2 max-w-[568px] min-h-[354px]">
                   <div
-                    className={`flex gap-4 text-3xl mt-9 ${
+                    className={`w-[642px] h-[720px] blur-2xl absolute top-1/2 -translate-y-1/2 -z-10 ${
+                      isEven(idx)
+                        ? 'left-0 -translate-x-1/4'
+                        : 'right-0 translate-x-1/4'
+                    }`}
+                    style={{
+                      background:
+                        'radial-gradient(50% 50% at 50% 50%, #763CAC 0%, rgba(50, 15, 133, 0) 100%)',
+                    }}
+                  />
+                  <div
+                    className={`w-[625px] h-[700px] blur-2xl absolute top-1/2 -translate-y-1/2 -z-10 ${
+                      isEven(idx)
+                        ? 'left-0 translate-x-[5%]'
+                        : 'right-0 -translate-x-[5%]'
+                    }`}
+                    style={{
+                      background:
+                        'radial-gradient(50% 50% at 50% 50%, #763CAC 0%, rgba(50, 15, 133, 0) 100%)',
+                    }}
+                  />
+
+                  <a
+                    href={work.liveUrl || work.thumbnailUrl}
+                    target="_blank"
+                    className="block w-full min-h-[354px] md:bg-valentino relative rounded-xl overflow-hidden"
+                  >
+                    <Image
+                      src={work.thumbnailUrl}
+                      alt={work.title}
+                      fill
+                      className={`rounded-xl object-cover md:!top-7 ${
+                        isEven(idx)
+                          ? 'md:!left-11 md:object-[top_left]'
+                          : 'md:!-left-11 md:object-[top_right]'
+                      }`}
+                    />
+                  </a>
+                </div>
+                <div
+                  className={`w-full md:w-7/12 md:absolute top-1/2 md:-translate-y-1/2 ${
+                    isEven(idx) ? 'left-0' : 'right-0'
+                  }`}
+                >
+                  <h5
+                    className={`font-semibold font-sans2 text-secondary capitalize ${
+                      isEven(idx) ? '' : 'text-right'
+                    }`}
+                  >
+                    {work.type} Project
+                  </h5>
+                  <h6
+                    className={`mb-7 text-body2 text-3xl font-semibold font-sans2  ${
+                      isEven(idx) ? '' : 'text-right'
+                    }`}
+                  >
+                    {work.title}
+                  </h6>
+                  <p
+                    className="font-sans2 mb-7 text-lg font-medium text-body2 py-6 px-8 bg-blend-[overlay,normal] backdrop-blur-2xl rounded-xl"
+                    style={{
+                      background:
+                        'radial-gradient(90.16% 143.01% at 15.32% 21.04%, rgba(105, 59, 147, 0.2) 0%, rgba(110, 191, 244, 0.0447917) 77.08%, rgba(70, 144, 213, 0) 100%)',
+                    }}
+                  >
+                    {work.text}
+                  </p>
+                  <div
+                    className={`flex gap-3 flex-wrap whitespace-nowrap text-sm text-body-2 font-sans2 font-light ${
                       isEven(idx) ? '' : 'justify-end'
                     }`}
                   >
-                    {work.source && (
-                      <a
-                        href={work.source}
-                        target="_blank"
-                        className="transition duration-[var(--duration-normal)] hover:text-primary"
+                    {work.category.split(',').map((c, idx) => (
+                      <span
+                        key={idx}
+                        className="bg-[#42176E] text-[#B57AF0] bg-opacity-50 backdrop-blur-md py-2 px-3 rounded-full text-xs font-medium"
                       >
-                        <FiGithub />
-                      </a>
-                    )}
-                    {work.liveUrl && (
-                      <a
-                        href={work.liveUrl}
-                        target="_blank"
-                        className="transition duration-[var(--duration-normal)] hover:text-primary"
-                      >
-                        <FiExternalLink />
-                      </a>
-                    )}
+                        {c}
+                      </span>
+                    ))}
                   </div>
-                )}
+                  {(work.source || work.liveUrl) && (
+                    <div
+                      className={`flex gap-4 text-3xl mt-9 ${
+                        isEven(idx) ? '' : 'justify-end'
+                      }`}
+                    >
+                      {work.source && (
+                        <a
+                          href={work.source}
+                          target="_blank"
+                          className="transition duration-[var(--duration-normal)] hover:text-primary"
+                        >
+                          <FiGithub />
+                        </a>
+                      )}
+                      {work.liveUrl && (
+                        <a
+                          href={work.liveUrl}
+                          target="_blank"
+                          className="transition duration-[var(--duration-normal)] hover:text-primary"
+                        >
+                          <FiExternalLink />
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </Container>
       </section>
 
@@ -331,7 +334,11 @@ const Home = ({ works }: Props) => {
 export default Home;
 
 export const getStaticProps = async () => {
-  const { data: works } = await axios.get('/works?sort[priorityOrder]=1');
+  const querySnapshot = await getDocs(collection(db, 'works'));
+  const works = querySnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
 
   return {
     props: {
