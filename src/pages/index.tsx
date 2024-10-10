@@ -33,6 +33,7 @@ interface Work {
   liveUrl: string;
   type: string;
   priorityOrder: number;
+  published: boolean;
 }
 
 interface Props {
@@ -168,6 +169,7 @@ const Home = ({ works }: Props) => {
       <section className="mb-40" id="work">
         <Container className="space-y-44">
           {works
+            ?.filter((work) => work.published)
             ?.sort((a, b) => a.priorityOrder - b.priorityOrder)
             .map((work, idx) => (
               <div
