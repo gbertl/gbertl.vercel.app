@@ -212,7 +212,7 @@ const Home = ({ works }: Props) => {
                       src={work.thumbnailUrl}
                       alt={work.title}
                       fill
-                      className={`rounded-xl object-cover md:!top-7 ${
+                      className={`rounded-xl object-cover object-[top_left] md:!top-7 ${
                         isEven(idx)
                           ? 'md:!left-11 md:object-[top_left]'
                           : 'md:!-left-11 md:object-[top_right]'
