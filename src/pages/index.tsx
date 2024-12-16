@@ -320,7 +320,7 @@ const Home = ({ works }: Props) => {
               <FiGithub />
             </a>
             <a
-              href="https://www.linkedin.com/in/gilbertlcsndle/"
+              href="https://www.linkedin.com/in/gbertl"
               target="_blank"
               className="text-lg transition duration-[var(--duration-normal) hover:text-primary"
             >
